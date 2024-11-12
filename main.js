@@ -83,8 +83,7 @@ renderToDo(todos);
 function updatePieChart() {
     const completedCount = todos.filter((todo) => todo.isCompleted).length;
     const totalCount = todos.length;
-    console.log(totalCount);
-    const completedPercentage = (completedCount / totalCount) * 100;
+    const completedPercentage = totalCount === 0 ? 0 : (completedCount / totalCount) * 100;
     const uncompletedPercentage = 100 - completedPercentage;
     const completedDashArray = `${completedPercentage} ${100 - completedPercentage}`;
     const uncompletedDashArray = `${uncompletedPercentage} ${100 - uncompletedPercentage}`;
@@ -97,14 +96,13 @@ function updatePieChart() {
         uncompletedSlice.style.strokeDasharray = uncompletedDashArray;
     }
     const percentageDisplay = document.querySelector(".percentage-display");
-    if (totalCount == 0) {
-        percentageDisplay.textContent = "0.00% Completed";
-    }
-    if (percentageDisplay && totalCount > 0) {
-        percentageDisplay.textContent = `${completedPercentage.toFixed(2)}% Completed`;
+    if (percentageDisplay) {
+        percentageDisplay.textContent =
+            totalCount === 0
+                ? "0.00% Completed"
+                : `${completedPercentage.toFixed(2)}% Completed`;
     }
 }
-// Run the function to initialize the chart
 updatePieChart();
 list.addEventListener("click", (e) => {
     const target = e.target;

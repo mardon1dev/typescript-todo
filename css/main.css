@@ -17,7 +17,7 @@ body {
 .delete-inner,
 .form,
 .extra-info,
-.list,  
+.list,
 .todo-item-wrapper,
 .update-input,
 .update-button,
@@ -91,10 +91,10 @@ body {
 }
 
 .legend-uncompleted {
+  background-color: #f44336;
   display: inline-block;
   width: 12px;
   height: 12px;
-  background-color: #f44336;
   border-radius: 50%;
   margin-right: 5px;
 }
