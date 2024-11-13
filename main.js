@@ -29,7 +29,7 @@ toDo.addEventListener("submit", (e) => {
         title: input.value,
         isCompleted: false,
     };
-    todos.unshift(data);
+    todos.push(data);
     input.value = "";
     e.target.reset();
     renderToDo(todos);

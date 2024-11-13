@@ -46,7 +46,7 @@ toDo.addEventListener("submit", (e: Event) => {
     isCompleted: false,
   };
 
-  todos.unshift(data);
+  todos.push(data);
   input.value = "";
   (e.target as HTMLFormElement).reset();
   renderToDo(todos);
